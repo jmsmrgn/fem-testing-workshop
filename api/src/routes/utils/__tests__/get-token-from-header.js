@@ -1,26 +1,22 @@
-// Things to know:
-// - `test` is a global function from Jest:
-//   `test(messageString, testerFunction)`
-//   Learn more here: https://facebook.github.io/jest/docs/api.html#testname-fn
-// - `expect` is a global function from Jest
-//   which allows you to make assertsions. For
-//   example:
-//     `expect(1).toBe(1)`
-//   Learn more here: https://facebook.github.io/jest/docs/expect.html
-//
-// Write unit tests for getTokenFromHeader.
-// See `api/src/routes/utils/get-token-from-header.js`
-// to see how this function has been implemented and
-// how it's intended to be used. Write at least two unit
-// tests to ensure that that use case is always supported.
 import getTokenFromHeader from '../get-token-from-header'
 
-test('this is the title of your test', () => {
-  // this is where you put your test code. Write code that will
-  // throw an error if getTokenFromHeader has a bug. The `expect`
-  // global is a utility that makes writting such assertions easier,
-  // but you can do it however you like.
+test('getTokenFromHeader returns null if there is no token', () => {
+  const req = getReq()
+  const result = getTokenFromHeader(req)
+  expect(result).toBeNull()
 })
+
+test('getTokenFromHeader returns the token when provided', () => {
+  const token = 'some.token.thing'
+  const authorization = `Token ${token}`
+  const req = getReq(authorization)
+  const result = getTokenFromHeader(req)
+  expect(result).toBe(token)
+})
+
+function getReq(authorization) {
+  return {headers: {authorization}}
+}
 
 //////// Elaboration & Feedback /////////
 // When you've finished with the exercises:
@@ -30,8 +26,8 @@ test('this is the title of your test', () => {
 // 4. And you're all done!
 /*
 http://ws.kcd.im/?ws=Testing&e=API%20Unit&em=hello@jmsmrgn.com*/
-test.skip('I submitted my elaboration and feedback', () => {
-  const submitted = false // change this when you've submitted!
+test('I submitted my elaboration and feedback', () => {
+  const submitted = true // change this when you've submitted!
   expect(true).toBe(submitted)
 })
 ////////////////////////////////
