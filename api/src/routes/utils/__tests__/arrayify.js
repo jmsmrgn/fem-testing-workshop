@@ -19,6 +19,25 @@
 // it up if needed. Then continue the cycle until you cover all use cases.
 import arrayify from '../arrayify'
 
+// arrayify() -> []
+test('if nothing passed returns empty array', () => {
+  const result = arrayify()
+  expect(result).toEqual([])
+})
+
+// arrayify(['hi']) -> ['hi']
+test('if given argument is array, return argument', () => {
+  const input = 'hi'
+  const result = arrayify([input])
+  expect(result).toEqual([input])
+})
+
+// arrayify([1, 2, 3]) -> [1, 2, 3]
+test('returns the same array if given an array', () => {
+  const input = [1, 2, 3]
+  const result = arrayify(input)
+  expect(result).toEqual(input)
+})
 
 //////// Elaboration & Feedback /////////
 // When you've finished with the exercises:
