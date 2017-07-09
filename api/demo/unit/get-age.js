@@ -1,7 +1,7 @@
 export default getAge
 
 function getAge(person) {
-  if (person.age) {
+  if (typeof person.age !== 'undefined') {
     return person.age
   }
   return null
