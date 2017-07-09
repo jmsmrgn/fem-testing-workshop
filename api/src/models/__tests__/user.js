@@ -12,7 +12,20 @@ import {getUserConstructor, generateUser} from './helpers/utils'
 // NOTE: If the user doesn't have an image, that's
 // totally fine (the client will handle the default)
 // so don't worry about checking that case.
-
+test('toProfileJSONFor returns correct object', () => {
+  const userOverrides = {
+    image: 'http://example.com/avatar',
+  }
+  const user = generateUser(userOverrides)
+  const result = user.toProfileJSONFor(user)
+  expect(result).toMatchObject(userOverrides)
+})
+// summary
+// inspected api call to see if image is available
+// tracked down function producing user object
+// wrote failing test for matching object
+// with generated user using image property override
+// fixed toProfileJSONFro method to include image and pass test
 
 //////// Elaboration & Feedback /////////
 // When you've finished with the exercises:
