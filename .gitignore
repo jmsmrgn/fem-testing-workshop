@@ -13,3 +13,4 @@ cypress/screenshots
 dist
 .opt-in
 .eslintcache
+videos
