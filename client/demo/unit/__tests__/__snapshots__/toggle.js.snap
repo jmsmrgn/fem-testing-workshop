@@ -1,5 +1,77 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`1. Before toggle 1`] = `
+.css-vp4bp7,
+[data-css-vp4bp7] {
+  text-align: center;
+  display: inline-block;
+  margin-bottom: 0px;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.4;
+  padding: 6px 12px;
+  cursor: pointer;
+  border-radius: 4px;
+  color: #fff;
+  background-color: #337ab7;
+  border-color: #285f8f;
+}
+
+<Toggle
+  onToggle={[Function]}
+>
+  <glamorous(button)
+    data-test="button"
+    on={false}
+    onClick={[Function]}
+  >
+    <button
+      className="css-vp4bp7"
+      data-test="button"
+      onClick={[Function]}
+    >
+      I am child
+    </button>
+  </glamorous(button)>
+</Toggle>
+`;
+
+exports[`2. After toggle 1`] = `
+.css-15i754,
+[data-css-15i754] {
+  text-align: center;
+  display: inline-block;
+  margin-bottom: 0px;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.4;
+  padding: 6px 12px;
+  cursor: pointer;
+  border-radius: 4px;
+  color: #fff;
+  background-color: #22527b;
+  border-color: #173853;
+}
+
+<Toggle
+  onToggle={[Function]}
+>
+  <glamorous(button)
+    data-test="button"
+    on={true}
+    onClick={[Function]}
+  >
+    <button
+      className="css-15i754"
+      data-test="button"
+      onClick={[Function]}
+    >
+      I am child
+    </button>
+  </glamorous(button)>
+</Toggle>
+`;
+
 exports[`the component renders with defaults 1`] = `
 .css-vp4bp7,
 [data-css-vp4bp7] {
