@@ -12,6 +12,31 @@ import {Component as Editor} from '../editor'
 //   Run the application and login (user: "joe@example.com", pass: "joe")
 //   and play around with the tag component. How could we use some
 //   of the utilities to make sure that interaction keeps working?
+test('renders the editor with defaults', () => {
+  const wrapper = mountEditor()
+  expect(wrapper).toMatchSnapshot()
+})
+
+test('renders the given title', () => {
+  const title = 'The day I fought the Predator'
+  const wrapper = mountEditor({title})
+  const titleInput = wrapper.find(sel('title'))
+  expect(titleInput.node.value).toBe(title)
+})
+
+test('adds tag when the user hits enter in the tagInput', () => {
+  const enter = 13
+  const newTag = 'interwebs'
+  const tagList = ['internet', 'web', 'network']
+  const wrapper = mountEditor({tagList})
+  const tagInput = wrapper.find(sel('tags'))
+  changeInputValue(tagInput, newTag)
+  keyUpInput(tagInput, enter)
+  const tagPills = wrapper.find(sel('tag-pills'))
+  expect(tagPills.children()).toHaveLength(4)
+  const newTagPill = wrapper.find(sel(`tag-3-${newTag}`))
+  expect(newTagPill).toHaveLength(1)
+})
 
 // I'm going to go ahead and give these utils to you
 // because I think you get the idea :)
@@ -64,8 +89,8 @@ function sel(id) {
 // 4. And you're all done!
 /*
 http://ws.kcd.im/?ws=Testing&e=Client%20Unit%20Editor&em=hello@jmsmrgn.com*/
-test.skip('I submitted my elaboration and feedback', () => {
-  const submitted = false // change this when you've submitted!
-  expect(true).toBe(submitted)
-})
+// test.skip('I submitted my elaboration and feedback', () => {
+//   const submitted = false // change this when you've submitted!
+//   expect(true).toBe(submitted)
+// })
 ////////////////////////////////
